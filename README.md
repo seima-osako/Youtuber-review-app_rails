@@ -30,3 +30,5 @@ Rails環境にインストールされているrakeコマンドを実行し、`r
 ```bash
 $ docker-compose run web bundle exec rake db:create
 ```
+
+![](./screenshot/1.png)
