@@ -32,3 +32,22 @@ $ docker-compose run web bundle exec rake db:create
 ```
 
 ![](./screenshot/1.png)
+
+## 開発手順
+### 1. データベースにYoutuberの情報を格納
+まず、Youtuberの情報として「名前」と「画像」を扱うためのProductモデルを作るマイグレーションファイルを生成する。
+
+> マイグレーションファイルとはデータベースにテーブルを作成したり、既存のテーブルの定義を変更する場合などに使用する。
+```bash
+$ docker-compose run web bundle exec rails g model product name:string image_url:text
+```
+`app/models/product.rb `ではproductsテーブルで作成されたカラムデータを扱える。命名規則により、Productモデルはproductsテーブルと関連付いており、テーブルのレコードをProductモデルのオブジェクトとして利用できる。(O/Rマッパー)
+```ruby
+# アプリケーションレコードを継承したプロダクトクラスが定義されていることで、モデルとして機能させている。
+class Product < ApplicationRecord
+end
+```
+マイグレーションを実行する。
+```
+$ docker-compose run web bundle exec rake db:migrate
+```
