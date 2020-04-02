@@ -55,8 +55,8 @@ $ docker-compose run web bundle exec rake db:migrate
 ### 2. レビューのモデルReviewを生成
 
 |カラム名|データ型|用途|
-|:---:|:---:|:---:|:---:|
-| nickname|string|ニックネーム|
+|:---:|:---:|:---:|
+|nickname|string|ニックネーム|
 |rate|integer|評価|
 |review|text|レビュー|
 |product_id|integer|Youtuber_id|
