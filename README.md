@@ -1,7 +1,7 @@
 # Youtuberレビューサイト
-
+![](./screenshot/3.png)
 ## 概要
-DockerとRuby on Railsを用いて簡易なレビューサイトを開発する。(開発中...)
+DockerとRuby on Railsを用いて簡易なYoutuberレビューサイトを開発する。(開発中...)
 
 ## 環境
 - Docker 19.03.8
