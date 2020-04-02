@@ -168,3 +168,14 @@ $ docker-compose exec web rails g devise:views
 $ docker-compose exec web rails g devise user
 $ docker-compose run web bundle exec rake db:migrate
 ```
+**会員登録機能の充実**
+userテーブルに画像やニックネームカラムを追加する
+```bash
+$ docker-compose run web bundle exec rails g migration AddImageToUsers image:string
+$ docker-compose run web bundle exec rails g migration AddNicknameToUsers nickname:string
+$ docker-compose run web bundle exec rake db:migrate
+```
+`gem 'carrierwave'`を導入
+```bash
+$ docker-compose run web bundle exec rails g uploader Image
+```
