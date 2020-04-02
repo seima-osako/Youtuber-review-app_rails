@@ -179,3 +179,15 @@ $ docker-compose run web bundle exec rake db:migrate
 ```bash
 $ docker-compose run web bundle exec rails g uploader Image
 ```
+
+### 6. userモデルとreviewモデル間のアソシエーション設定
+ReviewモデルとUserモデルの間には**1対多の関係**がある。
+```bash
+$ docker-compose run web bundle exec rails g migration RemoveNicknameFromReviews nickname:string
+$ docker-compose run web bundle exec rake db:migrate
+```
+ReviewモデルとUserモデルのアソシエーションを設定するにはReviewsテーブルにuser_idのカラムが必要になる。
+```bash
+$ docker-compose run web bundle exec rails g migration AddUserIdToReviews user_id:integer
+$ docker-compose run web bundle exec rake db:migrate
+```
