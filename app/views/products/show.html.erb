@@ -22,19 +22,21 @@
                 </h2>
               </header>
               <ul style="padding: 0">
+                <% @product.reviews.each do |review| %>
                 <li style="border-bottom: dotted 1px">
                   <div class="thumbnail__caption">
-                    <h3 class="text-xsmall text-overflow" title="テスト太郎">
-                      テスト太郎
+                    <h3 class="text-xsmall text-overflow" title="<%= review.nickname %>">
+                      <%= review.nickname %>
                     </h3>
                     <p class="text-small">
                       <span class="rating-star"><i class="star-actived rate-[ここに評価を表示]0"></i></span>
                     </p>
                     <p>
-                      面白い！
+                      <%= review.review %>
                     </p>
                   </div>
                 </li>
+                <% end %>
               </ul>
             </div>
           </article>

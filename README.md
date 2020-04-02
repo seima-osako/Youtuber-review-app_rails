@@ -100,3 +100,35 @@ $ docker-compose run web bundle exec rails g model review nickname:string rate:i
 
 $ docker-compose run web bundle exec rake db:migrate
 ```
+### 4. アソシエーションの設定
+**1対多の関係**
+- 1人のYoutuber(Productモデル)は複数のレビューを持っている
+- 1つのレビュー(Reviewモデル)は1人のYoutuberに属している
+
+`product.rb`
+```ruby
+class Product < ApplicationRecord
+  has_many :reviews
+end
+```
+`review.rb`
+```ruby
+class Review < ApplicationRecord
+  belongs_to :product
+end
+```
+※アソシエーションの確認
+```bash
+$ bundle exec rails c
+```
+```ruby
+review = Review.first # 一番最初のレビューを取得
+review.product
+=> そのYoutuber情報が表示されるか
+```
+```ruby
+review = Review.first # 一番最初のレビューを取得
+product = review.product # productを変数に入れる
+product.reviews
+=> そのYoutuberのレビューの一覧が表示されるか
+```
