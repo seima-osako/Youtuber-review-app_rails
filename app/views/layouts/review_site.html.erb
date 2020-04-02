@@ -32,7 +32,7 @@
               <i class="icon-crown color-gray-light"></i>投稿ランキング
             </h4>
             <ul class="listview listview--condensed text-small">
-              <% [].each.with_index(1) do |product, i| %>
+              <% @ranking.each.with_index(1) do |product, i| %>
               <li data-cinema-id="346394">
                 <a href="/products/<%= product.id %>">
                   <div class="box">
@@ -45,7 +45,7 @@
                       <p class="text-xsmall no-space">
                         <%= product.name %>
                       </p>
-                      <img src="<%= product.image_url %>" alt="">
+                      <img src="<%= product.image_url %>" width="90%" alt="">
                     </div>
                   </div>
                 </a>
