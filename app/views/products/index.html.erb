@@ -22,9 +22,15 @@
                       <%= product.name %>
                     </h3>
                     <p class="text-small">
+                      <% if product.reviews.present? %>
                       <span class="rating-star">
-                        <i class="star-actived rate-[ここに評価を表示]0"></i>
+                        <i class="star-actived rate-<%= product.reviews_average %>0"></i>
                       </span>
+                      <% else %>
+                      <span class="rating-star">
+                        <i class="star-actived rate-0"></i>
+                      </span>
+                      <% end %>
                     </p>
                   </div>
                 </li>
