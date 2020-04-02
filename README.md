@@ -51,8 +51,42 @@ end
 ```
 $ docker-compose run web bundle exec rake db:migrate
 ```
+### 2. ページネーションの実装
+Gemfileに`gem kaminari`を追記し、以下の順で実行する。
+```
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose exec web bundle exec rails g kaminari:config
+$ docker-compose exec web bundle exec rails g kaminari:views default
+```
+pageメソッドを呼ぶことにより、引数に指定したページに表示するデータだけを取得する。
+デフォルトでは、1ページあたり25件のデータを取得する。
 
-### 2. レビューのモデルReviewを生成
+```ruby
+# products_controller.rb
+def
+  @products = Product.page(params[:page])
+end
+```
+`app/views/products/index.html.erb`に`<%= paginate @products %>`を追記する。
+
+※日本語表示にしたい場合はまず、
+
+`config/application.rb`で`config.i18n.default_locale = :ja`を追記する。
+```yml
+# config/locales/ja.yml
+ja:
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: '前'
+      next: '次'
+      truncate: '...'
+```
+
+
+### 3. レビューのモデルReviewを生成
 
 |カラム名|データ型|用途|
 |:---:|:---:|:---:|
