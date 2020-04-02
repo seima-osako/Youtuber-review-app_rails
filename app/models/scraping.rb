@@ -1,6 +1,6 @@
 class Scraping
   def self.get_product
-    (1..5).each do |i|
+    (1..50).each do |i|
       agent = Mechanize.new
       # ダブルクォーテーションでなければ認識されない
       page = agent.get("https://ytranking.net/?p=#{i}")
