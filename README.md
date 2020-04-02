@@ -51,3 +51,18 @@ end
 ```
 $ docker-compose run web bundle exec rake db:migrate
 ```
+
+### 2. レビューのモデルReviewを生成
+
+|  カラム名  |  データ型  |  用途  |
+| ---- | ---- | ---- | ---- |
+| nickname  |  string  |  ニックネーム  |
+|  rate  |  integer  |  評価  |
+|  review  |  text  |  レビュー  |
+|  product_id  |  integer  |  Youtuber_id  |
+
+```bash
+$ docker-compose run web bundle exec rails g model review nickname:string rate:integer review:text product_id:integer
+
+$ docker-compose run web bundle exec rake db:migrate
+```
