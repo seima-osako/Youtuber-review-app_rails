@@ -1,4 +1,5 @@
 # Youtuberレビューサイト
+↓ログインした状態↓
 ![](./screenshot/3.png)
 ## 概要
 DockerとRuby on Railsを用いて簡易なYoutuberレビューサイトを開発する。(開発中...)
