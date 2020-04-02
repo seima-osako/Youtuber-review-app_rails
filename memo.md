@@ -26,3 +26,15 @@ TechReviewSite::Application.routes.draw do
 end
 ```
 ![](./screenshot/2.png)
+
+- **annotateとは**
+
+テーブル構造を自動でモデルファイルに書き出してくれる
+
+`gem 'annotate'`
+
+↓
+```bash
+$ docker-compose up -d
+$ docker-compose exec web bundle exec annotate
+```
