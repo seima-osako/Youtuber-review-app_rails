@@ -8,7 +8,6 @@ class ProductsController < RankingController
   end
 
   def search
-    # 検索フォームのキーワードをあいまい検索して、productsテーブルから20件の作品情報を取得する
-    @products = []
+    @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(10)
   end
 end
