@@ -6,15 +6,7 @@ class ReviewsController < RankingController
 
   def create
     review = Review.create(create_params)
-    if review.save
-      flash[:notice] = "投稿されました"
-      redirect_to controller: :products, action: :index
-    else
-      redirect_to :back, flash: {
-        review: review,
-        error_messages: review.errors.full_messages
-      }
-    end
+    redirect_to controller: :products,flash: { notice: "投稿されました。" } ,action: :index
   end
 
   private
