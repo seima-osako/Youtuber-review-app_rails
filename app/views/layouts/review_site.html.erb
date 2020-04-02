@@ -18,9 +18,14 @@
               <li class="logo" style="float: left">
                 <a href="/">Youtuberレビューサイト</a>
               </li>
-              <li class="entry_button" style="float: right">
-                <%= link_to 'サインアウト', '/users/sign_out', method: :delete %>
-              </li>
+              <% if user_signed_in? %>
+                <li class="entry_button" style="float: right">
+                  <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+                </li>
+                <li class="entry_button" style="float: right">
+                  <a href="/users/<%= current_user.id %>">マイページ</a>
+                </li>
+              <% end %>
               <li class="entry_button" style="float: right">
                 <a href="/products/search">投稿する</a>
               </li>

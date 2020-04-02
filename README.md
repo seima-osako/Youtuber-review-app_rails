@@ -191,3 +191,8 @@ ReviewモデルとUserモデルのアソシエーションを設定するにはR
 $ docker-compose run web bundle exec rails g migration AddUserIdToReviews user_id:integer
 $ docker-compose run web bundle exec rake db:migrate
 ```
+
+### 7. マイページ作成
+```bash
+$ docker-compose run web bundle exec rails g controller users
+```
