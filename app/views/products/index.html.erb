@@ -5,6 +5,9 @@
       <div id="yjMain">
         <article class="section">
           <div class="container">
+          <% if flash[:notice] %>
+            <div class="alert alert-primary"><%= flash[:notice] %></div>
+          <% end %>
             <header class="header header--section">
               <h2 class="text-middle">
                 <i class="icon-movie color-gray-light"></i>Youtuber一覧

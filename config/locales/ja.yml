@@ -1,4 +1,9 @@
 ja:
+  activerecord:
+    attributes:
+      review:
+        nickname: 'ニックネーム'
+        review: 'レビュー'
   views:
     pagination:
       first: '最初'
