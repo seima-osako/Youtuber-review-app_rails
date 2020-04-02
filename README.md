@@ -160,3 +160,11 @@ product = review.product # productを変数に入れる
 product.reviews
 => そのYoutuberのレビューの一覧が表示されるか
 ```
+
+### 5. ユーザー認証機能
+```bash
+$ docker-compose exec web rails g devise:install
+$ docker-compose exec web rails g devise:views
+$ docker-compose exec web rails g devise user
+$ docker-compose run web bundle exec rake db:migrate
+```
